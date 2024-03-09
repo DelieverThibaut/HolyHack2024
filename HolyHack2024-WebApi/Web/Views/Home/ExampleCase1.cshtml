@@ -1,0 +1,44 @@
+﻿@using Web.ViewModels
+@model ExampleCaseViewModel;
+@{
+    ViewData["Title"] = "Example Case 1";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Example Case 1</h1>
+    <div class="d-flex flex-column mt-5">
+        <h1 class="display-6">Persona Information</h1>
+        <table class="table mt-2">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col"># Products</th>
+                    <th scope="col"># Retours</th>
+                    <th scope="col">Risk score</th>
+                    <th scope="col">Price (original)</th>
+                    <th scope="col">Price (model)</th>
+                    <th scope="col">Extra fee/discount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var order in Model.Orders.Select((value, index) => new {value, index}))
+                {
+                    <tr>
+                        <td scope="row">@order.index</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>95%</td>
+                        <td>€ 45</td>
+                        <td>€ 50</td>
+                        <td>€ 5</td>
+                    </tr>
+                }
+                <tr>
+                    <td scope="row">5</td>
+                    <td>4</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>

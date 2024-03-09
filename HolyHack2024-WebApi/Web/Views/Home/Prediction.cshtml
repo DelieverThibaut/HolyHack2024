@@ -1,0 +1,30 @@
+﻿@using System.Globalization
+@using Web.ViewModels
+@model PredictionViewModel;
+@{
+    ViewData["Title"] = "Prediction";
+}
+
+@section Scripts {
+    <script>
+        function refreshTable() {
+            var ap = $("#amountProducts").val()
+            var ar = $("#amountRetours").val()
+            var p = $("#price").val()
+            console.log(ap, ar, p)
+            $("#predictionTable")
+                .load('@Url.Action("GetPredictionTable", "Home")' + '?productAmount=' + ap + '&retourRatio=' + ar + '&price=' + p);
+        }
+    </script>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Prediction</h1>
+    <div class="d-flex flex-column mt-5">
+        <h1 class="display-6">Persona Information</h1>
+        <div id="predictionTable">
+            @Html.Partial("~/Views/Shared/Tables/_PredictionTable.cshtml", new PredictionTableViewModel(Model.ProductAmount, Model.RetourRatio, Model.Price))
+        </div>
+    </div>
+</div>
+

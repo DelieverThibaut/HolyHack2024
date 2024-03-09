@@ -1,0 +1,28 @@
+﻿@using Web.ViewModels
+@model PredictionTableViewModel;
+
+
+
+<table class="table mt-2">
+    <thead>
+        <tr>
+            <th scope="col"># Products in the order</th>
+            <th scope="col">Retourratio (%)</th>
+            <th scope="col">Price of the order</th>
+            <th scope="col">Risk score</th>
+            <th scope="col">Retour fee</th>
+            <th scope="col">Fee (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td scope="row"><input id="amountProducts" class="form-control input-sm checkchange" type="number" value="@Model.ProductAmount" onchange="refreshTable()" /></td>
+            <td><input id="amountRetours" class="form-control input-sm checkchange" type="number" value="@Model.RetourRatio.ToString().Replace(',', '.')" onchange="refreshTable()" /></td>
+            <td><input id="price" class="form-control input-sm checkchange" type="number" value="@Model.Price.ToString().Replace(',', '.')" onchange="refreshTable()" /></td>
+
+            <td class="removable"><input class="form-control input-sm" disabled type="number" value="@Double.Round(Model.RiskScore, 2).ToString().Replace(',', '.')" /></td>
+            <td class="removable"><input class="form-control input-sm" disabled type="number" value="@Double.Round(Model.SuggestedFee, 2).ToString().Replace(',', '.')" /></td>
+            <td class="removable"><input class="form-control input-sm" disabled type="number" value="@Double.Round(Model.FeePercentage, 2).ToString().Replace(',', '.')" /></td>
+        </tr>
+    </tbody>
+</table>
