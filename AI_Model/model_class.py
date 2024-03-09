@@ -91,30 +91,13 @@ class Model:
         self.model.load_weights(filename)
 
 
-def main():
+def predict():
     my_model = Model('aankooplijst.xlsx', 30, 'relu', 5, ['Risk'])
-    # my_model.train(0.2, 42)
-    my_model.load_weights("trained_4.weights.h5")
+    my_model.train(0.2, 42)
+    # my_model.load_weights("trained_4.weights.h5")
 
-    inputs = [2, 4,30] # retrieve inputs from front-end
-    print("PREDICTION: \n \n \n")
-    print(my_model.predict(inputs))
-    
-    inputs = [7, 80, 150] # retrieve inputs from front-end
-    print(my_model.predict(inputs))
 
-    inputs = [7, 30, 150] # retrieve inputs from front-end
-    print(my_model.predict(inputs))
+    inputs = [x, y, z] # retrieve inputs from front-end
+    return my_model.predict(inputs)
 
-    inputs = [15, 15, 200] # retrieve inputs from front-end
-    print(my_model.predict(inputs))
-
-    inputs = [30, 100, 150] # retrieve inputs from front-end
-    print(my_model.predict(inputs))
-  
-    # my_model.save_weights("trained_4.weights.h5")
-    # my_model.load_weights("initial_weights.h5")
-
-if __name__ == "__main__":
-    main()
    

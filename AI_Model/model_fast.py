@@ -6,8 +6,11 @@ import keras_core as keras
 
 import matplotlib.pyplot as plt
 
-
-def predict(inputs):
+# x= 3
+# y= 5
+# z = 13
+inputs = [x, y, z]
+def predict():
 
     model = keras.Sequential()
     model.add(keras.layers.Input(shape=[3]))
@@ -31,5 +34,9 @@ def predict(inputs):
         prediction=100.0
 
     # Return the prediction
-    return prediction
-# print(prediction)
+    with open('output.txt', 'w') as file:
+        # Append content to the file
+        file.write(str(prediction[0][0]))
+    # print(prediction)
+        
+# predict(inputs)
