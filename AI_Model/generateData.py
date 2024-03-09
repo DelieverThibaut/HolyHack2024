@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import numpy as np
 
 # amount of rows
-size = 5000
+size = 10000
 
 outWorkbook = xlsxwriter.Workbook("aankooplijst.xlsx")
 outSheet = outWorkbook.add_worksheet()

@@ -89,8 +89,8 @@ class Model:
 
 def main():
     my_model = Model('aankooplijst.xlsx', 30, 'relu', 5, ['Risk'])
-    my_model.train(0.2, 42)
-    # my_model.load_weights("trained_1.weights.h5")
+    # my_model.train(0.2, 42)
+    my_model.load_weights("trained_4.weights.h5")
 
     inputs = [2, 4,30] # retrieve inputs from front-end
     print("PREDICTION: \n \n \n")
@@ -108,7 +108,7 @@ def main():
     inputs = [3, 100, 150] # retrieve inputs from front-end
     print(my_model.predict(inputs))
   
-    my_model.save_weights("trained_3.weights.h5")
+    # my_model.save_weights("trained_4.weights.h5")
     # my_model.load_weights("initial_weights.h5")
 
 
