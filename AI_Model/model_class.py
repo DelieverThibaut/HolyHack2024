@@ -115,7 +115,6 @@ def main():
     # my_model.save_weights("trained_4.weights.h5")
     # my_model.load_weights("initial_weights.h5")
 
-
 if __name__ == "__main__":
     main()
    
