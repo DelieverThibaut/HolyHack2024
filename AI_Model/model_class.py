@@ -74,6 +74,10 @@ class Model:
         
         # Use the model to make a prediction
         prediction = self.model.predict(inputs)
+
+        # Cap risk
+        if prediction>100:
+            prediction=100.0
         
         # Return the prediction
         return prediction
@@ -105,7 +109,7 @@ def main():
     inputs = [15, 15, 200] # retrieve inputs from front-end
     print(my_model.predict(inputs))
 
-    inputs = [3, 100, 150] # retrieve inputs from front-end
+    inputs = [30, 100, 150] # retrieve inputs from front-end
     print(my_model.predict(inputs))
   
     # my_model.save_weights("trained_4.weights.h5")
