@@ -3,7 +3,8 @@ import random
 from datetime import datetime, timedelta
 import numpy as np
 
-size = 10000
+# amount of rows
+size = 5000
 
 outWorkbook = xlsxwriter.Workbook("aankooplijst.xlsx")
 outSheet = outWorkbook.add_worksheet()
@@ -23,7 +24,7 @@ max_prod = 15
 # Generate random values with a normal distribution (mean=median, std=std_deviation)
 am_products = np.random.normal(loc=median, scale=std_deviation, size=size)
 
-# Ensure all values are higher than 1
+# Ensure all values are between 1 and max_prod
 am_products = np.maximum(am_products, 1)
 am_products = np.minimum(am_products, max_prod)
 am_products = am_products.astype(int)
@@ -40,11 +41,10 @@ std_deviation = 20
 
 ratios = np.random.normal(loc=median, scale=std_deviation, size=size)
 
-# Ensure all values are higher than 1
-ratios = np.maximum(ratios, 1)
+# Ensure all values are between 0 and 100
+ratios = np.maximum(ratios, 0)
 ratios = np.minimum(ratios, 100)
 ratios = ratios.astype(int)
-
 
 
 for t in range(size):
